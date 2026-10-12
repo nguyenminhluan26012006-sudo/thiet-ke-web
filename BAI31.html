@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính Tổng Chia Hết Cho 3</title>
+</head>
+<body>
+
+    <!-- Phần giao diện form -->
+    <form onsubmit="tinhTongChiaHetCho3(event)">
+        <label>Số đầu:</label>
+        <input type="number" id="soDau">
+        
+        <label>Số cuối:</label>
+        <input type="number" id="soCuoi">
+        
+        <button type="submit">Tính tổng</button>
+    </form>
+
+    <p id="hienThiKetQua"></p>
+
+    <!-- Phần xử lý JavaScript -->
+    <script>
+        function tinhTongChiaHetCho3(event) {
+            // Ngăn chặn form load lại trang
+            event.preventDefault();
+            
+            // Lấy giá trị từ ô input và đổi sang kiểu số nguyên
+            let dau = parseInt(document.getElementById("soDau").value);
+            let cuoi = parseInt(document.getElementById("soCuoi").value);
+            
+            // Khởi tạo biến lưu tổng
+            let tong = 0;
+            
+            // Dùng vòng lặp for duyệt từ số đầu đến số cuối
+            for (let i = dau; i <= cuoi; i++) {
+                // Kiểm tra xem số hiện tại có chia hết cho 3 không
+                if (i % 3 === 0) {
+                    tong = tong + i; // Cộng dồn vào tổng
+                }
+            }
+            
+            // In kết quả ra console và hiện lên màn hình
+            console.log("Tổng là: " + tong);
+            document.getElementById("hienThiKetQua").innerText = "Tổng các số chia hết cho 3 là: " + tong;
+        }
+    </script>
+
+</body>
+</html>
